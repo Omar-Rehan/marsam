@@ -1,11 +1,9 @@
 #pragma once
 
+#include "utils/window-utils.hpp"
+
 #include <type_traits>
 #include <assert.h>
-
-// TODO: Move to common header file
-#define SWITCH_CASE_ENUM_STRING(e)  case e:  { return #e; }
-#define SWITCH_CASE_DEFAULT_CRASH() default: { abort(); }
 
 namespace sahifa
 {
@@ -249,7 +247,7 @@ namespace sahifa
 
 	/*----------------------------------------------------------------------------------------------------*/
 
-	// Supported window core implementations
+	// Supported window implementations
 	enum class Core_Implementation
 	{
 		WIN32_API
