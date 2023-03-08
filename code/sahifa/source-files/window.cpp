@@ -1,5 +1,5 @@
 #include "window.hpp"
-#include "core/win32/win32-window.hpp"
+#include "core/win32/window-win32.hpp"
 
 #include <assert.h>
 

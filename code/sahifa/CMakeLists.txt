@@ -16,13 +16,13 @@ endif()
 # List header files
 set(HEADER_FILES
 	header-files/window.hpp
-	header-files/core/win32/win32-window.hpp
+	header-files/core/win32/window-win32.hpp
 )
 
 # List source files
 set(SOURCE_FILES
 	source-files/window.cpp
-	source-files/core/win32/win32-window.cpp
+	source-files/core/win32/window-win32.cpp
 )
 
 # Add header & source files to project
