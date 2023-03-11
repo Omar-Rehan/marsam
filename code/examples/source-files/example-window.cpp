@@ -4,7 +4,9 @@
 
 int main()
 {
-	sahifa::IWindow* const window = sahifa::window_construct(sahifa::Core_Implementation::WIN32_API);
+	sahifa::IWindow* const window = new sahifa::IWindow;
+	sahifa::window_api(window, sahifa::Core_Implementation::WIN32_API);
+
 	window->initialize(window, {1280u, 720u, L"example-window"});
 	while(true)
 	{
@@ -54,7 +56,8 @@ int main()
 		}
 	}
 	window->deinitialize(window);
-	sahifa::window_destruct(window);
+
+	delete window;
 
 	return 0;
 }

@@ -5,10 +5,9 @@
 
 namespace sahifa
 {
-	auto window_construct(Core_Implementation const core) -> IWindow*
+	auto window_api(IWindow* const window, Core_Implementation const core) -> void
 	{
-		// Allocate memory
-		IWindow* window = new IWindow;
+		assert(window);
 
 		// Setup interface
 		switch (core)
@@ -23,26 +22,6 @@ namespace sahifa
 				assert(false);
 			}
 		}
-
-		return window;
-	}
-
-	auto window_destruct(IWindow* const window) -> void
-	{
-		// Clear interface
-		{
-			window->initialize    = nullptr;
-			window->deinitialize  = nullptr;
-			window->process_event = nullptr;
-			window->get_handle    = nullptr;
-			window->get_width     = nullptr;
-			window->get_height    = nullptr;
-			window->get_title     = nullptr;
-			window->set_title     = nullptr;
-		}
-
-		// Deallocate memory
-		delete window;
 	}
 
 } // namespace sahifa

@@ -36,3 +36,8 @@
 			- Enables the reuse of a pre-constructed window.
 		- Delayed Initialization:
 			- Avoids forcing initialization at construction. (~~RAII~~)
+- **Memory management in application code level:**
+	- Description:
+		- Leave as much memory management as possible outside the generic interface layer.
+	- Reasons:
+		- Don't force the use of `new` and `delete` on users.

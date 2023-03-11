@@ -288,10 +288,7 @@ namespace sahifa
 		void* core_data;
 	};
 
-	// Allocate memory and setup interface
-	auto window_construct(Core_Implementation const core) -> IWindow*;
-
-	// Deallocate memory and clear interface
-	auto window_destruct(IWindow* const window) -> void;
+	// Setup interface
+	auto window_api(IWindow* const window, Core_Implementation const core) -> void;
 
 } // namespace sahifa
