@@ -4,7 +4,6 @@
 
 int main()
 {
-	// TODO: Make example changable
 	sahifa::IWindow* const window = sahifa::window_construct(sahifa::Core_Implementation::WIN32_API);
 	window->initialize(window, {1280u, 720u, L"example-window"});
 	while(true)
