@@ -282,14 +282,14 @@ namespace sahifa::core::win32
 
 		auto window_initialize(IWindow* const window, Window_Desc const& desc) -> void
 		{
-			assert(window);
+			assert(window && !window->core_data);
 			assert(desc.width > 0u && desc.height > 0u && desc.title);
 
 			// Allocate data
-			Window_Win32* core_data = nullptr;
+			Window_Win32* core_data = nullptr; // Just a reinterpreted pointer (for ease of use)
 			{
 				window->core_data = new Window_Win32;
-				core_data = static_cast<Window_Win32*>(window->core_data); // Cast pointer for ease of use
+				core_data = reinterpret_cast<Window_Win32*>(window->core_data);
 			}
 
 			// Initialize data
@@ -372,6 +372,7 @@ namespace sahifa::core::win32
 
 			// Deallocate data
 			delete window->core_data;
+			window->core_data = nullptr;
 		}
 
 		auto window_process_event(IWindow* const window) -> Event
