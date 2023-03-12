@@ -4,13 +4,13 @@
 
 int main()
 {
-	sahifa::IWindow* const window = new sahifa::IWindow;
-	sahifa::window_api(window, sahifa::Core_Implementation::WIN32_API);
+	sahifa::IWindow window{};
+	sahifa::window_api(&window, sahifa::Core_Implementation::WIN32_API);
 
-	window->initialize(window, {1280u, 720u, L"example-window"});
+	window.initialize(&window, {1280u, 720u, L"example-window"});
 	while(true)
 	{
-		sahifa::Event const evt = window->process_event(window);
+		sahifa::Event const evt = window.process_event(&window);
 
 		if (evt.type == sahifa::Event_Type::WINDOW_CLOSE)
 			break;
@@ -55,9 +55,7 @@ int main()
 				break;
 		}
 	}
-	window->deinitialize(window);
-
-	delete window;
+	window.deinitialize(&window);
 
 	return 0;
 }
